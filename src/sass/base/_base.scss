@@ -1,0 +1,23 @@
+body{
+    font-family: $font-default;
+    font-size: 100%;
+    font-weight: 400;
+}
+.container{
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media only screen and(min-width: $breakpoint-desktop){
+    .container{
+        width: 1000px;
+        max-width: 100%;
+    }
+}
+@media only screen and(min-width: $breakpoint-large-desktop){
+    .container{
+        width: 1140px;
+        max-width: 100%;
+    }
+}

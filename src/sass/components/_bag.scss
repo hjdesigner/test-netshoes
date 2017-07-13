@@ -1,0 +1,295 @@
+.bag{
+    width: 90%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: -90%;
+    background-color: $bg-bag;
+    border-left: 2px solid #cccccc;
+    &.bag-active{
+        transition: transform 300ms ease-in;
+        transform: translateX(-90%);
+    }
+    &.bag-close{
+        transition: transform 300ms ease-out;
+        transform: translateX(0%);
+    }
+        .bag{
+            &-icon{
+                width: 29px;
+                height: 40px;
+                position: absolute;
+                top: 0;
+                left: -29px;
+                background-color: $bg-bag;
+                text-indent: -999999px;
+                background-image: url(../images/icon-sacola.png);
+                background-repeat: no-repeat;
+                background-size: 80%;
+                background-position: center center;
+                cursor: pointer;
+                    .bag-icon-numb{
+                        position: absolute;
+                        bottom: 7px;
+                        left: 17px;
+                        color: #000;
+                        font-weight: 400;
+                        font-size: .6em;
+                        z-index: 999999;
+                        text-indent: 0;
+                    }
+            }
+            &-header{
+                width: 100%;
+                height: auto;
+                display: inline-block;
+                padding: 20px 0;
+                    h3{
+                        width: 100%;
+                        height: auto;
+                        position: relative;
+                        text-align: center;
+                        font-weight: 700;
+                        font-size: 1em;
+                        color: #FFF;
+                        &:before{
+                            content: "";
+                            width: 30px;
+                            height: 30px;
+                            display: inline-block;
+                            background-image: url(../images/icon-sacola.png);
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            top: 9px;
+                            position: relative;
+                            margin-right: 10px;
+                        }
+                        .bag-number{
+                            position: absolute;
+                            bottom: -5px;
+                            left: calc(50% - 30px);
+                            color: #000;
+                            font-weight: 400;
+                            font-size: .6em;
+                        }
+                    }
+            }
+            &-items{
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-wrap: wrap;
+                padding: 20px;
+                position: relative;
+                box-sizing: border-box;
+                &:before{
+                    content: "";
+                    width: 90%;
+                    height: 2px;
+                    position: absolute;
+                    top: 0;
+                    left: calc(50% - 45%);
+                    background-color: $bg-bar-bag;
+                }
+                .bag-items{
+                    &-image{
+                        width: 17%;
+                        height: auto;
+                            img{
+                                width: 100%;
+                            }
+                    }
+                    &-text{
+                        width: 60%;
+                        height: auto;
+                        margin-left: 10px;
+                    }
+                    &-title{
+                        width: 100%;
+                        height: auto;
+                        margin-bottom: 4px;
+                        color: $text-bag-title;
+                        font-size: .7em;
+                        font-weight: 600;
+                    }
+                    &-sku,
+                    &-amount{
+                        width: 100%;
+                        height: auto;
+                        margin-bottom: 4px;
+                        color: $text-bag-text;
+                        font-size: .6em;
+                        font-weight: 600;
+                    }
+                    &-amount{
+                        margin-bottom: 0px;
+                    }
+                    &-price{
+                        width: 18%;
+                        height: auto;
+                        margin-top: 30px;
+                        text-align: right;
+                        font-weight: 700;
+                        color: $text-bag-price;
+                        font-size: .6em;
+                    }
+                    &-delete{
+                        width: 16px;
+                        height: 15px;
+                        position: absolute;
+                        top: 18px;
+                        right: 19px;
+                        text-indent: -99999px;
+                        background-image: url('../images/icon-delete.png');
+                        background-repeat: no-repeat;
+                        cursor: pointer;
+                    }
+                }
+            }
+            &-subtotal{
+                width: 100%;
+                margin-top: 15px;
+                box-sizing: border-box;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                    .bag-subtotal{
+                        &-title{
+                            width: auto;
+                            margin-top: 7px;
+                            color: #656567;
+                            font-size: .8em;
+                        }
+                        &-price{
+                            width: 140px;
+                            font-weight: 700;
+                            color: #dfbd00;
+                            font-size: 1em;
+                            text-align: right;
+                        }
+                        &-installment{
+                            width: 100%;
+                            margin-top: 5px;
+                            color: #656567;
+                            font-size: .7em;
+                            font-weight: 400;
+                        }
+                    }
+            }
+            &-purchase{
+                width: 100%;
+                margin-top: 15px;
+                box-sizing: border-box;
+                padding: 0 20px;
+                    a{
+                        width: 100%;
+						height: 40px;
+                        display: inline-block;
+						background-color: $bg-button;
+						text-align: center;
+						line-height: 40px;
+						color: $text-button;
+						text-transform: uppercase;
+                        font-size: 1em;
+                        text-decoration: none;
+						cursor: pointer;
+                    }
+            }
+        }
+}
+@media screen and (min-width: $breakpoint-mobile){
+    .bag{
+        width: 515px;
+        right: -515px;
+        &.bag-active{
+            transition: transform 300ms ease-in;
+            transform: translateX(-515px);
+        }
+        &.bag-close{
+            transition: transform 300ms ease-out;
+            transform: translateX(0px);
+        }
+            .bag{
+                &-icon{
+                    width: 60px;
+                    height: 60px;
+                    left: -60px;
+                    background-size: inherit;
+                        .bag-icon-numb{
+                            bottom: 8px;
+                            left: 35px;
+                            font-size: 1em;
+                        }
+                }
+                &-header{
+                    padding: 57px 0;
+                    h3{
+                        font-size: 1.3em;
+                        text-transform: uppercase;
+                        &:before{
+                            width: 42px;
+                            height: 54px;
+                            top: 23px;
+                        }
+                        .bag-number{
+                            bottom: -15px;
+                            left: calc(50% - 38px);
+                        }
+                    }
+                }
+                &-items{
+                    padding: 25px;
+                    .bag-items{
+                        &-image{
+                            width: 50px;
+                        }
+                        &-text{
+                            width: 317px;
+                            margin-left: 20px;
+                        }
+                        &-title{
+                            font-size: .8em;
+                            margin-bottom: 8px;
+                        }
+                        &-sku,
+                        &-amount{
+                            font-size: .8em;
+                        }
+                        &-price{
+                            width: 78px;
+                            font-size: .8em;
+                        }
+                        &-delete{
+                            top: 23px;
+                        }
+                    }
+                }
+                &-subtotal{
+                    margin-top: 33px;
+                    .bag-subtotal{
+                        &-title{
+                            font-size: 1em;
+                            text-transform: uppercase;
+                        }
+                        &-price{
+                            width: 210px;
+                            font-size: 1.2em;
+                        }
+                        &-installment{
+                            font-size: .7em;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+                &-purchase{
+                    margin-top: 32px;
+                        a{
+                            height: 50px;
+                            line-height: 50px;
+                            font-weight: 700;
+                        }
+                }
+            }
+    }
+}
