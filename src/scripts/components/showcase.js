@@ -69,7 +69,7 @@ function viewBag(){
     priceInstallment.innerHTML = parseFloat(totalFinish / 10).toFixed(2).replace('.',',');
 
     let itemHtml = `
-        <div class="bag-items">
+        <div class="bag-items" data-js="${this.getAttribute('data-id')}">
 			<div class="bag-items-image">
 				<img src="../images/${this.getAttribute('data-id')}.jpg" alt="">
 			</div>
@@ -81,7 +81,10 @@ function viewBag(){
 			<div class="bag-items-price">
 				R$ ${parseFloat(this.getAttribute('data-price')).toFixed(2).replace('.',',')}
 			</div>
-			<div class="bag-items-delete" data-id="${this.getAttribute('data-id')}" data-price="${this.getAttribute('data-price')}" >delete</div>
+			<div class="bag-items-delete" data-id="${this.getAttribute('data-id')}" data-price="${this.getAttribute('data-price')}" onclick="deleteItem(
+                this.getAttribute('data-id'),
+                this.getAttribute('data-price')
+            )" >delete</div>
 		</div>
     `;
 
@@ -90,6 +93,28 @@ function viewBag(){
 
 viewAll();
 
+function deleteItem(data_id, data_price){
+    
+    let numberBag = document.querySelector('[data-js="item-bag"]');
+    let totalBag = document.querySelector('[data-js="totalBag"]');
+    let priceInstallment = document.querySelector('[data-js="priceInstallment"]');
+    let totalFinish = parseFloat(totalBag.textContent) - parseFloat(data_price);
+
+    numberBag.innerHTML = parseInt(numberBag.textContent) - 1;
+    if(totalFinish > 0){
+        totalBag.innerHTML = totalFinish.toFixed(2).replace('.',',');
+        priceInstallment.innerHTML = parseFloat(totalFinish / 10).toFixed(2).replace('.',',');
+    }else{
+        totalBag.innerHTML = '0,00';
+        priceInstallment.innerHTML = '0,00';
+    }
+
+    document.querySelectorAll('.bag-items').forEach(function(el, i){
+        if(el.getAttribute('data-js') === data_id){
+            el.remove();
+        }
+    });
+}
 
 setTimeout(function(){
     const btnPurchase = document.querySelectorAll('.showcase-purchase');
