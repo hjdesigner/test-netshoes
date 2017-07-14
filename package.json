@@ -17,23 +17,13 @@
     "gulp-babel": "^6.1.2",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
-    "gulp-csslint": "^0.2.0",
-    "gulp-cssmin": "^0.1.7",
-    "gulp-html-replace": "^1.6.1",
-    "gulp-imagemin": "^3.3.0",
-    "gulp-jshint": "^2.0.3",
-    "gulp-less": "^3.3.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^2.0.0",
-    "gulp-usemin": "^0.3.25",
-    "gulp-util": "^3.0.8",
-    "gulp.spritesmith": "^6.5.0",
-    "jshint": "^2.9.4",
-    "jshint-stylish": "^2.0.1"
+    "gulp-util": "^3.0.8"
   },
   "engines": {
-    "node": "6.6.0"
+    "node": "6.11.0"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
