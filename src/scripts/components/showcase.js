@@ -97,4 +97,3 @@ setTimeout(function(){
     btnPurchase.forEach(button => button.addEventListener('click', viewBag));
     btnPurchaseMobile.forEach(button => button.addEventListener('click', viewBag));
 },500);
-
