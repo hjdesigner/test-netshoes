@@ -1,6 +1,5 @@
-# Test
+# Front-end test for Netshoes
 
-> Front-end test for Netshoes
 
 [Final Result](http://test-netshoes.herokuapp.com/)
 
