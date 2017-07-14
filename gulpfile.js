@@ -16,18 +16,6 @@ var autoprefixerOptions  = {
 
 gulp.task('default', ['server'], function(){});
 
-gulp.task('build', ['copy'], function(){});
-
-gulp.task('copy', ['clean'], function(){
-	return gulp.src(['src/**/*', '!src/sass/**/*', '!src/scripts/**/*'])
-		.pipe(gulp.dest('build'));
-});
-
-gulp.task('clean', function(){
-  return gulp.src('build')
-        .pipe(clean());
-});
-
 gulp.task('sass', function(){
     return gulp.src('./src/sass/test-netshoes.min.+(scss|sass)')
       .pipe(sourcemaps.init())
