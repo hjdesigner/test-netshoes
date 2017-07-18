@@ -59,14 +59,8 @@ function viewAll(){
 }
 function viewBag(){
 
-    let numberBag = document.querySelector('[data-js="item-bag"]');
-    let totalBag = document.querySelector('[data-js="totalBag"]');
-    let priceInstallment = document.querySelector('[data-js="priceInstallment"]');
-    let totalFinish = parseFloat(totalBag.textContent) + parseFloat(this.getAttribute('data-price'));
-
-    numberBag.innerHTML = parseInt(numberBag.textContent) + 1;
-    totalBag.innerHTML = totalFinish.toFixed(2).replace('.',',');
-    priceInstallment.innerHTML = parseFloat(totalFinish / 10).toFixed(2).replace('.',',');
+    let numberBag = document.querySelector('[data-js="item-bag"]');    
+    numberBag.innerHTML = parseInt(numberBag.textContent) + 1;    
 
     let itemHtml = `
         <div class="bag-items" data-js="${this.getAttribute('data-id')}">
@@ -89,31 +83,24 @@ function viewBag(){
     `;
 
     itemsBag.insertAdjacentHTML('beforeend', itemHtml);
+
+    resultFinishi();
 }
 
 viewAll();
 
-function deleteItem(data_id, data_price){
-    
-    let numberBag = document.querySelector('[data-js="item-bag"]');
+function resultFinishi(){
+    let valor = 0;
+    let total = 0;
     let totalBag = document.querySelector('[data-js="totalBag"]');
     let priceInstallment = document.querySelector('[data-js="priceInstallment"]');
-    let totalFinish = parseFloat(totalBag.textContent) - parseFloat(data_price);
-
-    numberBag.innerHTML = parseInt(numberBag.textContent) - 1;
-    if(totalFinish > 0){
-        totalBag.innerHTML = totalFinish.toFixed(2).replace('.',',');
-        priceInstallment.innerHTML = parseFloat(totalFinish / 10).toFixed(2).replace('.',',');
-    }else{
-        totalBag.innerHTML = '0,00';
-        priceInstallment.innerHTML = '0,00';
-    }
-
     document.querySelectorAll('.bag-items').forEach(function(el, i){
-        if(el.getAttribute('data-js') === data_id){
-            el.remove();
-        }
+        valor = el.children[2].textContent.replace('R$ ', '').replace(',','.').replace(/^\s+|\s+$/g,"");
+        total = total + parseFloat(valor);
+        totalBag.innerHTML = total.toFixed(2).replace('.',',');
+        priceInstallment.innerHTML = parseFloat(total / 10).toFixed(2).replace('.',',');        
     });
+    
 }
 
 setTimeout(function(){
