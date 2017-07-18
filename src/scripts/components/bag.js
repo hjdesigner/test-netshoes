@@ -35,7 +35,6 @@ function resultFinishi(){
     document.querySelectorAll('.bag-items').forEach(function(el, i){
         valor = el.children[2].textContent.replace('R$ ', '').replace(',','.').replace(/^\s+|\s+$/g,"");
         total = total + parseFloat(valor);
-        console.log(valor);
         if(total > 0){
             totalBag.innerHTML = total.toFixed(2).replace('.',',');
             priceInstallment.innerHTML = parseFloat(total / 10).toFixed(2).replace('.',',');
